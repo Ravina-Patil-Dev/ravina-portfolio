@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ultra-smooth 120Hz-like animations and performance optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0;
+  overscroll-behavior: none;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  scroll-behavior: smooth;
+}
+
+/* Hardware acceleration for ultra-smooth performance */
+.will-change-transform {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Optimized scroll stack animations */
+.scroll-stack-card {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, filter;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Smooth scrolling optimization */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Performance optimizations for scroll animations */
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-stack-card {
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                filter 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-stack-card {
+    transition: none;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* Smooth transitions with optimized timing functions */
+* {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Enhanced button and interactive element animations */
+button, a, [role="button"] {
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateZ(0);
+}
+
+button:hover, a:hover, [role="button"]:hover {
+  transform: translateZ(0) translateY(-1px);
+}
+
+button:active, a:active, [role="button"]:active {
+  transform: translateZ(0) translateY(0px) scale(0.98);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.5);
+}
+
+/* Enhanced focus states */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-transparent;
+}
+
+/* Smooth hover transitions */
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Glass morphism effect */
+.glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+/* Seamless section transitions */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+section:not(:first-child) {
+  margin-top: -1px;
+}
+
+/* Remove visual separations between sections */
+#hero, #about, #projects, #travel, #certificates, #experience, #education, #research, #media {
+  background: transparent;
+}
+
+/* Text selection */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: white;
+}
+
+/* Line clamp utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Enhanced button animations */
+.btn-primary {
+  @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl;
+  @apply hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300;
+  @apply transform hover:scale-105 active:scale-95;
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Scroll lock for dome gallery */
+body.dg-scroll-lock {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  touch-action: none !important;
+  overscroll-behavior: contain !important;
+}
