@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, Github, Linkedin, Mail, MapPin, ArrowRight } from "lucide-react";
+import {
+  ChevronDown,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
 import BlurText from "../ui/BlurText.jsx";
 import LiquidEther from "../ui/LiquidEther.jsx";
 import heroImage from "../../assets/images/Ravina.jpeg";
 
 const HeroSection = () => {
-
   const [showGreeting, setShowGreeting] = useState(true);
 
   useEffect(() => {
@@ -102,11 +108,12 @@ const HeroSection = () => {
             animate="visible"
             className="text-left"
           >
-
             <motion.div variants={itemVariants} className="mb-6 inline-block">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-                <span className="text-sm text-white/80">Welcome to my portfolio</span>
+                <span className="text-sm text-white/80">
+                  Welcome to my portfolio
+                </span>
               </div>
             </motion.div>
 
@@ -124,7 +131,8 @@ const HeroSection = () => {
               variants={itemVariants}
               className="text-xl text-blue-200 mb-6"
             >
-              Frontend Developer <span className="text-blue-300">&</span> React Developer
+              Frontend Developer{" "}
+              <span className="text-blue-300">&</span> React Developer
             </motion.p>
 
             <motion.div
@@ -139,24 +147,27 @@ const HeroSection = () => {
               variants={itemVariants}
               className="text-lg text-white/90 mb-6 leading-relaxed"
             >
-              Passionate frontend developer with 1+ year of experience building modern React applications. I specialize in responsive UI development, reusable components, and REST API integration.
+              Passionate frontend developer with 1+ year of experience building
+              modern React applications. I specialize in responsive UI
+              development, reusable components, and REST API integration.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
               className="text-lg italic text-blue-300 mb-8 pl-4 border-l-2 border-blue-400"
             >
-              “Creating modern, responsive and scalable web applications using React JS.”
+              “Creating modern, responsive and scalable web applications using
+              React JS.”
             </motion.p>
 
-            <motion.div
-              variants={itemVariants}
-              className="flex gap-4 mb-10"
-            >
+            {/* Buttons */}
+            <motion.div variants={itemVariants} className="flex gap-4 mb-10">
 
+              {/* ✅ Correct Download CV */}
               <motion.a
-                href="/resume.pdf"
-                download="Ravina_Patil_Resume.pdf"
+                href="https://drive.google.com/uc?export=download&id=1P-mPVWpc9k616gCsW5USH4beCmsfzLOy"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full font-semibold flex items-center gap-2"
@@ -167,16 +178,18 @@ const HeroSection = () => {
 
               <motion.button
                 onClick={() =>
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
                 }
                 whileHover={{ scale: 1.05 }}
                 className="px-8 py-4 border-2 border-white text-white rounded-full font-semibold"
               >
                 Contact Me
               </motion.button>
-
             </motion.div>
 
+            {/* Social Links */}
             <motion.div variants={itemVariants} className="flex gap-4">
               {socialLinks.map((link) => {
                 const Icon = getSocialIcon(link.platform);
@@ -194,44 +207,36 @@ const HeroSection = () => {
                 );
               })}
             </motion.div>
-
           </motion.div>
 
-
-          {/* Right Side Profile Image */}
+          {/* Right Side Image */}
           <motion.div
             variants={imageVariants}
             initial="hidden"
             animate="visible"
             className="flex justify-center"
           >
-
             <motion.div
               className="relative w-64 h-64 lg:w-80 lg:h-80"
               animate={{ y: [0, -20, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
             >
-
-              {/* Glow Background */}
               <div className="absolute -inset-10 -z-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-3xl opacity-40"></div>
 
-              {/* Rotating Ring */}
               <motion.div
                 className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500 to-purple-500"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               />
 
-              {/* Profile Image */}
               <div className="absolute inset-4 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl">
                 <img
                   src={heroImage}
                   alt="Ravina Patil"
-                 className="w-full h-full object-cover object-top scale-105"
+                  className="w-full h-full object-cover object-top scale-105"
                 />
               </div>
 
-              {/* Floating Glow Ring */}
               <motion.div
                 className="absolute inset-0 rounded-full border border-white/20"
                 animate={{
@@ -240,15 +245,12 @@ const HeroSection = () => {
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
               />
-
             </motion.div>
-
           </motion.div>
-
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         animate={{ y: [0, 12, 0] }}
@@ -256,7 +258,6 @@ const HeroSection = () => {
       >
         <ChevronDown size={32} className="text-white/50" />
       </motion.div>
-
     </section>
   );
 };
