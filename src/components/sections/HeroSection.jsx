@@ -165,9 +165,8 @@ const HeroSection = () => {
 
               {/* ✅ Correct Download CV */}
               <motion.a
-                href="https://drive.google.com/uc?export=download&id=1P-mPVWpc9k616gCsW5USH4beCmsfzLOy"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/Ravina_Patil_CV.pdf"
+                download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full font-semibold flex items-center gap-2"
