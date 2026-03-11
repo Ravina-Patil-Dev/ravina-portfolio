@@ -161,7 +161,7 @@ const About = () => {
             </div>
 
             <motion.a
-              href={resumeUrl}
+              href="/Ravina_Patil_CV.pdf"
               target="_blank"
               className="inline-block px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient"
               whileHover={{ scale: 1.05 }}
